@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "Eike",
+    "cpf": "604.133.243-70",
+    "dataNascimento": "2004-08-25",
+    "cargo": "Desenvolvedor",
+    "salario": "R$ 10.000,00",
+    "estado": "CE",
+    "estadoCivil": "casado"
+  },
+  {
+    "nome": "Enzo",
+    "cpf": "604.133.373-59",
+    "dataNascimento": "2001-12-17",
+    "cargo": "Técnico de Segurança do Trabalho",
+    "salario": "R$ 5.000,00",
+    "estado": "CE",
+    "estadoCivil": "solteiro"
+  }
+]

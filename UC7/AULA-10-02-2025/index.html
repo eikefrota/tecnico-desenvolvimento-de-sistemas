@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tarefas</title>
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">TASK MANAGER</h1>
+            <form class="form" id="form">
+                <label for="task-name" class="label-form">NAME:</label>
+                <input type="text" id="task-name" class="input-form" required>
+
+                <label for="task-description" class="label-form">DESCRIPTION:</label>
+                <textarea id="task-description" class="input-form" required></textarea>
+
+                
+                <label for="author" class="label-form">AUTHOR:</label>
+                <input type="text" id="author" class="input-form" required>
+
+                
+                <label for="datatime" class="label-form">DATE-TIME:</label>
+                <input type="datetime-local" id="datatime" class="input-form" required>
+
+                <div id="radio-group">
+                    <label class="label-form"><input type="radio" name="radio-selection" class="input-form">Concluido</label>    
+                    <label class="label-form"><input type="radio" name="radio-selection" checked class="input-form">Pendente</label>
+                    <label class="label-form"><input type="radio" name="radio-selection" class="input-form">Cancelado</label>
+                </div>
+
+                <div id="button-group">
+                    <button type="submit" id="submit" class="button-form">ADD TASK</button>
+                    <button type="button" id="clear" class="button-form">CLEAR</button>
+                </div>
+
+            </form>
+        
+        
+        
+        
+        
+        <div id="tasks">
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

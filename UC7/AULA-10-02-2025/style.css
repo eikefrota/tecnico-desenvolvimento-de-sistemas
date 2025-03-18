@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: linear-gradient(to right, #4b0082, #8a2be2); /* Indigo to BlueViolet */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container{
+    background-color: #ffffff; /* White */
+    width: 50%;
+    border: solid 2px #6a1b9a; /* Purple */
+    margin: 50px auto;
+    padding: 20px 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#title{
+    text-align: center;
+    font-size: 30px;
+    color: #6a1b9a; /* Purple */
+    margin: 10px;
+}
+
+#form{
+    width: 95%;
+    padding: 50px;
+    border: solid 2px #6a1b9a; /* Purple */
+    border-radius: 5px;
+    margin: 20px 40px;
+}
+
+.input-form{
+    margin: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 2px #ba68c8; /* LightPurple */
+}
+
+.label-form{
+    margin: 5px 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #6a1b9a; /* Purple */
+}
+
+#radio-group{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+    margin-top: 40px;
+}
+
+input[type="radio"] {
+    width: 25px;
+    height: 25px;
+}
+
+#button-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.button-form{
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: solid 2px #8c49b5; /* Purple */
+    background-color: #8e24aa; /* DarkPurple */
+    color: #ffffff; /* White */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-form:hover {
+    background-color: #6a1b9a; /* Purple */
+    color: #ffffff; /* White */
+}

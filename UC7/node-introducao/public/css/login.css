@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #001eff, #4e33ff);
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#titulo-login {
+    text-align: center;
+    color: #4d4c4c;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#form-login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    background-color: #dedede;
+}
+
+.labels {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 12px;
+    color: #2d2d2d;
+}
+
+.inputs {
+    width: 100%;
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.inputs:focus {
+    outline: none; 
+    border-color: #0000ff;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+.campo-obrigatorio {
+    display: none;
+    color: #e3342f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#area-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#btn-login {
+    background-color: #00a524;
+}
+
+#btn-limpar {
+    background-color: #c00000;
+}
+
+.btn-form {
+    width: 40%;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+#btn-login:hover {
+    background-color: #00e732;
+    transition: 0.5s;
+    transform: scale(110%);
+}
+
+#btn-limpar:hover {
+    background-color: #f50000;
+    transition: 0.3s;
+    transform: scale(110%);
+}

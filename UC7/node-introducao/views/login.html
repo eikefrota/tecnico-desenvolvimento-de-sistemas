@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <section id="container">
+        <form id="form-login">
+            <div>
+                <h1 id="titulo-login">LOGIN</h1>
+            </div>
+            <label class="labels" for="cpf">CPF:</label>
+            <input class="inputs" type="text" id="cpf" name="cpf">
+            <p class="campo-obrigatorio" id="campo-obrigatorio">Campo obrigatório!</p>
+            
+            <label class="labels" for="senha">SENHA:</label>
+            <input class="inputs" type="password" id="senha" name="senha">
+            <p class="campo-obrigatorio" id="campo-obrigatorio">Campo obrigatório!</p>
+            
+            <div id="area-btn">
+                <button id="btn-login" class="btn-form" type="submit">Login</button>
+                <button id="btn-limpar" class="btn-form" type="reset">Limpar</button>
+            </div>
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

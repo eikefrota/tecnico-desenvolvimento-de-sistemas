@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+#btn-voltar {
+    position: fixed;
+    top: 30px; /* Ajuste conforme necessário */
+    left: 50px; /* Ajuste conforme necessário */
+    background-color: #d5d5d5;
+    color: #181818;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn-voltar:hover {
+    transform: scale(108%);
+}
+
+.container{
+    color: #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45vw;
+    height: 90vh;
+    padding: 20px;
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    border: 2px solid #ececec;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}   
+
+.container h1{
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.carrinho{
+    display: flex;
+    width: 90%;
+    border: 2px solid #3e3e3e;
+    border-radius: 10px;
+    margin-top: 30px;    
+    padding: 10px;
+    background-color: #f0eeee;
+    color: #232323;
+}
+
+.produto-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: 0.5s;
+}
+
+.produto-img:hover{
+    transform: scale(110%) rotate(-2deg);
+}
+
+.produto-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.produto-nome {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.produto-quantidade {
+    font-size: 16px;
+}
+
+.produto-preco {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.produto-btn {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.produto-btn:hover {
+    transform: scale(108%);
+}
