@@ -1,12 +1,13 @@
-import "./CardLivro.css";
-
-function CardLivro(){
+import "./CardLivro.css"
+//Prepare o CardLivro para receber as informações do livro (desctruct)
+function CardLivro({id, titulo, autor, ano_lancamento, removerLivro}){
     //Lógica
-
+    
     //Renderização
+    //Crie um elemento li e preencha com as informações recebidas
     return(
-        <li key={livro.id}>
-            {livro.id} - {livro.titulo} - {livro.autor} - {livro.ano_lancamento}
+        <li>
+            {id} - {titulo} - {autor} - {ano_lancamento} - <button onClick={() => (removerLivro(id))}> 🗑 Apagar</button>
         </li>
     )
 }
