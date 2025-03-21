@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.container{
+  border: solid black 1px;
+  border-radius: 10px;
+  min-height: 70vh;
+  min-width: 80vw;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
