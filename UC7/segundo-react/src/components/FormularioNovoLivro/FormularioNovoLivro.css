@@ -5,5 +5,18 @@
 }
 
 .container.formulario h1 {
-    color: red;
+    color: #fff;
 }
+
+.container.formulario form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container.formulario input {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    }
