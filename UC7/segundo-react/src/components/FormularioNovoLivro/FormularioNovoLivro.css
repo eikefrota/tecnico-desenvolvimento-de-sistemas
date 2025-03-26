@@ -1,6 +1,6 @@
 .container.formulario{
-    
     overflow: hidden;
+    padding: 50px;
     
 }
 
@@ -19,4 +19,5 @@
 .container.formulario input {
     margin-top: 10px;
     margin-bottom: 30px;
-    }
+}
+
