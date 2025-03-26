@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import './App.css'
-import CardLivro from './components/CardLivro/CardLivro'
-import FormularioNovoLivro from './components/FormularioNovoLivro/FormularioNovoLivro'
+import FormularioNovoLivro from './views/FormularioNovoLivro/FormularioNovoLivro'
+import AcervoLivros from './views/AcervoLivros/AcervoLivros'
 
 function App() {
   //Código e declaração de variáveis  
@@ -68,6 +69,8 @@ function App() {
       ano_lancamento: 1320
     }
   ])
+  const navigate = useNavigate()
+  
 
   const removerLivro = (idLivro) => {
     const livrosAtualizado = livros.filter((livro) => livro.id != idLivro)
@@ -77,31 +80,39 @@ function App() {
 
   const adicionarLivro = (novoLivro) => {
     // Criar um campo id na variável novoLivro
-    const novoLivroAjustado = {id: livros[livros.length - 1].id + 1 ,...novoLivro}
+    const novoLivroAjustado = { id: livros[livros.length - 1].id + 1, ...novoLivro }
     // Criar uma lista que contenha os livros antigos e o novoLivro
     const listaLivrosAtualizada = [...livros, novoLivroAjustado]
     // Guardar as informações da nova lista usando o setLivros
     setLivros(listaLivrosAtualizada)
 
     //setLivros([...livros, {id: livros[livros.length - 1].id + 1, ...novoLivro }])
+    navigate("/acervo")
+
   }
 
 
   return (
     // Declaração do que será renderizado
+    
     <>
-      <FormularioNovoLivro adicionarLivro={adicionarLivro}/>
-      <div className='container' style={{ color: 'White' }}>
-        <h1>Acervo de Livros</h1>
-        <ul>
-          {
-            livros.map((livro) => (
-              <CardLivro key={livro.id} id={livro.id} titulo={livro.titulo} autor={livro.autor} ano_lancamento={livro.ano_lancamento} removerLivro={removerLivro} />
-            )
-            )
-          }
-        </ul>
-      </div>
+      <nav className='menu'>
+        <div>LOGO</div>
+        <div>
+          <Link to="/acervo">Acervo de Livros</Link>
+          <Link to="/cadastro">Cadastro de Livros</Link>
+        </div>
+      </nav>
+
+      <Routes>
+
+        <Route path='/acervo' element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
+
+        <Route path='/cadastro' element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
+
+        <Route path='*' element={<h1>404 Página não encontrada</h1>} />
+
+      </Routes>
     </>
   )
 }
