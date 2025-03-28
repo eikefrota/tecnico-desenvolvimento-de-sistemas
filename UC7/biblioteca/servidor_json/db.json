@@ -1,0 +1,64 @@
+{
+    "livros": [
+        {
+            "id": 1,
+            "titulo": "Dom Quixote",
+            "autor": "Miguel de Cervantes",
+            "ano_lancamento": 1605
+        },
+        {
+            "id": 2,
+            "titulo": "Orgulho e Preconceito",
+            "autor": "Jane Austen",
+            "ano_lancamento": 1813
+        },
+        {
+            "id": 3,
+            "titulo": "1984",
+            "autor": "George Orwell",
+            "ano_lancamento": 1949
+        },
+        {
+            "id": 4,
+            "titulo": "O Grande Gatsby",
+            "autor": "F. Scott Fitzgerald",
+            "ano_lancamento": 1925
+        },
+        {
+            "id": 5,
+            "titulo": "Cem Anos de Solidão",
+            "autor": "Gabriel García Márquez",
+            "ano_lancamento": 1967
+        },
+        {
+            "id": 6,
+            "titulo": "Ulisses",
+            "autor": "James Joyce",
+            "ano_lancamento": 1922
+        },
+        {
+            "id": 7,
+            "titulo": "A Revolução dos Bichos",
+            "autor": "George Orwell",
+            "ano_lancamento": 1945
+        },
+        {
+            "id": 8,
+            "titulo": "O Apanhador no Campo de Centeio",
+            "autor": "J.D. Salinger",
+            "ano_lancamento": 1951
+        },
+        {
+            "id": 9,
+            "titulo": "Moby Dick",
+            "autor": "Herman Melville",
+            "ano_lancamento": 1851
+        },
+        {
+            "id": 10,
+            "titulo": "A Divina Comédia",
+            "autor": "Dante Alighieri",
+            "ano_lancamento": 1320
+        }
+    ]
+}
