@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import './App.css'
 import FormularioNovoLivro from './views/FormularioNovoLivro/FormularioNovoLivro'
@@ -70,6 +70,15 @@ function App() {
       ano_lancamento: 1320
     }
   ])
+
+  // useEffect(async () => {
+  //   const carregarLivros = async () => {
+  //     const response = await fetch("http://localhost:5000/livros")
+  //     const dados = await response.json()
+  //     setLivros(dados)
+  //   }
+  // }, [])
+
   const navigate = useNavigate()
   
 
@@ -115,15 +124,11 @@ function App() {
       </nav>
 
       <Routes>
-
-        <Route path='/acervo' element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
-
-        <Route path='/cadastro' element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
-
-        <Route path='/editar/:id' element={<FormularioAtualizarLivro livros={livros} atualizarLivro={atualizarLivro} />} />
-
-        <Route path='*' element={<h1>404 Página não encontrada</h1>} />
-
+        <Route path="/" element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
+        <Route path="/acervo" element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
+        <Route path="/cadastro" element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
+        <Route path="/editar/:id" element={<FormularioAtualizarLivro livros={livros} atualizarLivro={atualizarLivro} />} />
+        <Route path="*" element={<h1>404 Página não encontrada</h1>} />
       </Routes>
     </>
   )
