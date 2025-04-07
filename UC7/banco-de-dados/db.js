@@ -6,7 +6,7 @@ dotenv.config();
 
 let pool
 
-const getConnection = () => {
+export const getConnection = () => {
     if (!pool) {
         pool = new pg.Pool({
             user: process.env.DB_USER,
@@ -24,7 +24,7 @@ const getConnection = () => {
     return pool;
 }
 
-const closeConnection = async () => {
+export const closeConnection = async () => {
     if (pool) {
         await pool.end();
         pool = null;
