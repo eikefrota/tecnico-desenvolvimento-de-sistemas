@@ -1,12 +1,12 @@
 const db = require('../db');
 
-const findAll = () => {
-    'SELECT * FROM profissional';
-}
+const findAll = () => db.query(
+    'SELECT * FROM profissional'
+)
 
-const findById = () => {
-    'SELECT * FROM profissional WHERE id = $1', [id];
-}
+const findById = (id) => db.query(
+    'SELECT * FROM profissional WHERE matricula = $1', [id]
+)
 
 const create = ({ nome, profissao, salario, setor, cidade, estado }) => {
     return db.query(
@@ -21,3 +21,9 @@ const update = (id, { nome, profissao, salario, setor, cidade, estado }) => {
         [nome, profissao, salario, setor, cidade, estado, id]
     );
 };
+
+const remove = (id) => db.query(
+        'DELETE FROM profissional WHERE matricula = $1', [id]
+);
+
+module.exports = { findAll, findById, create, update, remove }
