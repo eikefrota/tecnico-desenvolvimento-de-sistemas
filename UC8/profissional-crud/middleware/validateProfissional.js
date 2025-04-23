@@ -12,6 +12,10 @@ module.exports = (req, res, next) => {
     if (estado.length !== 2) {
         return res.status(400).json({ error: 'Estado deve ter 2 letras.' });
     }
+
+    if ((!profissao == 'Programador') || (!profissao == 'programador')) {
+        return res.status(400).json({error: 'Profissão não pode ser diferente de: Programador'})
+    }
     
     next();
 };
