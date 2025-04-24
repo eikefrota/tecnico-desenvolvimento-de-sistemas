@@ -8,5 +8,6 @@ router.get('/:matricula', controller.getById);
 router.post('/', validate, controller.create);
 router.put('/:matricula', validate, controller.update);
 router.delete('/:matricula', controller.remove);
+router.head('/', controller.head);
 
 module.exports = router;
