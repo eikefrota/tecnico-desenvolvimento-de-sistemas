@@ -15,9 +15,9 @@ class ProfissionalRepository {
   }
 
   // Método para criar um novo profissional
-  async create({ nome, profissao, salario, setor, cidade, estado }) {
+  async create({ matricula, nome, profissao, salario, setor, cidade, estado }) {
     const result = await db.query(
-      'INSERT INTO profissional (nome, profissao, salario, setor, cidade, estado) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      'INSERT INTO profissional ( matricula, nome, profissao, salario, setor, cidade, estado) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
       [nome, profissao, salario, setor, cidade, estado]
     );
     return new Profissional(result.rows[0]);  // Retorna uma instância de Profissional

@@ -4,6 +4,9 @@ const cors = require('cors');
 const morgan = require('morgan'); // <- Importa o morgan
 const profissionalRoutes = require('./routes/profissionalRoutes');
 const dbInit = require('./db/dbInit');
+const swaggerUi = require('./swagger-ui-express')
+const swaggerSpec = require('./swagger/swaggerConfig')
+
 
 class Server {
   constructor() {
@@ -20,6 +23,7 @@ class Server {
 
     // Ativa o morgan em modo 'dev' para logs de requisições no console
     this.app.use(morgan('dev'));
+    this.app.use('api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
   }
 
   routes() {
