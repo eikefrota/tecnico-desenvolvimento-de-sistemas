@@ -22,10 +22,3 @@
 
 //excluir
 //curl -X DELETE http://localhost:3000/profissionais/123
-
-
-//npm install swagger-ui-express swagger-jsdoc
-//npm install swagger-jsdoc swagger-ui-express
-
-//http://localhost:3000/api-docs
-

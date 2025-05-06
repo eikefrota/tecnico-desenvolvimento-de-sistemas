@@ -1,12 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan'); // <- Importa o morgan
+const morgan = require('morgan');
 const profissionalRoutes = require('./routes/profissionalRoutes');
 const dbInit = require('./db/dbInit');
-const swaggerUi = require('./swagger-ui-express')
-const swaggerSpec = require('./swagger/swaggerConfig')
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger/swaggerConfig'); // <- import Swagger config
 
 class Server {
   constructor() {
@@ -20,14 +19,14 @@ class Server {
   configureMiddlewares() {
     this.app.use(express.json());
     this.app.use(cors());
-
-    // Ativa o morgan em modo 'dev' para logs de requisições no console
     this.app.use(morgan('dev'));
-    this.app.use('api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
+    // Documentação Swagger
+    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   }
 
   routes() {
-    this.app.use('/api/profissionais', profissionalRoutes);
+    this.app.use('/profissionais', profissionalRoutes);
 
     this.app.get('/', (req, res) => {
       res.send('API de Profissionais está funcionando!');
@@ -51,6 +50,7 @@ class Server {
   start() {
     this.app.listen(this.port, () => {
       console.log(`Servidor rodando na porta ${this.port}`);
+      console.log(`Documentação Swagger em http://localhost:${this.port}/api-docs`);
     });
   }
 }
