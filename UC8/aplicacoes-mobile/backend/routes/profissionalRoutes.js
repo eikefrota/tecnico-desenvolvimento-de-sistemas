@@ -102,6 +102,8 @@ class ProfissionalRoutes {
      *           schema:
      *             type: object
      *             properties:
+     *               matricula:
+     *                 type: integer
      *               nome:
      *                 type: string
      *               profissao:
