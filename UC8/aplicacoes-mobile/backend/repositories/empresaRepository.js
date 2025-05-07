@@ -26,7 +26,7 @@ class EmpresaRepository {
   // Método para atualizar uma empresa
   async update(id, { nome, ramo, logradouro, cidade, estado }) {
     const result = await db.query(
-      'UPDATE empresa SET nome=$1, ramo=$2, logradouro=$3, cidade=$4, estado=$5 WHERE id=$7 RETURNING *',
+      'UPDATE empresa SET nome=$1, ramo=$2, logradouro=$3, cidade=$4, estado=$5 WHERE id=$6 RETURNING *',
       [nome, ramo, logradouro, cidade, estado, id]
     );
     return new Empresa(result.rows[0]);  // Retorna a instância atualizada de Empresa
