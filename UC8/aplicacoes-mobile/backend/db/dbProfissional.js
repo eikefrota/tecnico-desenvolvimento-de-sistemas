@@ -2,14 +2,14 @@
 const db = require('./db'); // Importa a conexão com o banco de dados
 
 // Script SQL para criar a tabela profissional
-const createTable = async () => {
-  const checkTableQuery = `SELECT to_regclass('public.profissional');`;
+const createTableProfissional = async () => {
+  const checkTableQuery = `  SELECT to_regclass('public.profissional') AS profissional_exists;`;
 
   try {
     const result = await db.query(checkTableQuery);
 
     // Verifica se a tabela já existe
-    if (result.rows[0].to_regclass === null) {
+    if (result.rows[0].profissional_exists === null) {
       // Se a tabela não existir, cria a tabela
       const createQuery = `
         CREATE TABLE profissional (
@@ -33,4 +33,4 @@ const createTable = async () => {
   }
 };
 
-module.exports = createTable;
+module.exports = createTableProfissional;

@@ -3,7 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const profissionalRoutes = require('./routes/profissionalRoutes');
-const dbInit = require('./db/dbInit');
+const EmpresaRoutes = require('./routes/empresaRoutes');
+const dbProfissional = require('./db/dbProfissional');
+const dbEmpresa = require('./db/dbEmpresa');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swaggerConfig'); // <- import Swagger config
 
@@ -27,9 +29,10 @@ class Server {
 
   routes() {
     this.app.use('/profissionais', profissionalRoutes);
+    this.app.use('/empresas', EmpresaRoutes);
 
     this.app.get('/', (req, res) => {
-      res.send('API de Profissionais está funcionando!');
+      res.send('API está funcionando!');
     });
 
     this.app.use((err, req, res, next) => {
@@ -40,10 +43,17 @@ class Server {
 
   async initDb() {
     try {
-      await dbInit();
-      console.log('Tabela criada com sucesso!');
+      await dbProfissional();
+      console.log('Tabelas "profissional" criada com sucesso!');
     } catch (err) {
-      console.error('Erro ao criar a tabela: ', err);
+      console.error('Erro ao criar a tabela "Profissional": ', err);
+    }
+
+    try {
+      await dbEmpresa();
+      console.log('Tabelas "empresa" criada com sucesso!');
+    } catch (err) {
+      console.error('Erro ao criar a tabela "empresa": ', err);
     }
   }
 
