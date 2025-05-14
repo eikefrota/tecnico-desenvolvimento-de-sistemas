@@ -1,4 +1,63 @@
-// ----------------------------useContext---------------------------------------------
+// 1 - Criar um contador com botões de incrementar, decrementar e resetar.
+
+// import { useState } from 'react';
+// import { Button, Text, View } from 'react-native';
+
+// export default function Contador() {
+//   const [contador, setContador] = useState(0);
+
+//   return (
+//     <View>
+//       <Text>Contador: {contador}</Text>
+//       <Button title="Incrementar" onPress={() => setContador(contador + 1)} />
+//       <Button title="Decrementar" onPress={() => setContador(contador - 1)} />
+//       <Button title="Resetar" onPress={() => setContador(0)} />
+//     </View>
+//   );
+// }
+
+
+// 2 - Alternar visibilidade de um texto com botão "Mostrar/Ocultar".
+
+// import { useState } from 'react';
+// import { Button, Text, View } from 'react-native';
+
+// export default function mostrarOcultar() {
+//   const [visivel, setVisivel] = useState(true);
+//   return (
+//     <View>
+//       {visivel && <Text>ACHOOOOOOOU</Text>}
+//       <Button title="Alternar" onPress={() => setVisivel(!visivel)} />
+//     </View>
+//   );
+// }
+
+
+// 3 - Exibir uma mensagem no console toda vez que o estado de um contador mudar. 
+
+// import { useEffect, useState } from 'react';
+// import { Button, Text, View } from 'react-native';
+
+// export default function Contador() {
+//   const [contador, setContador] = useState(0);
+  
+//   useEffect(() => {
+//     console.log("Apertado")
+//   })
+
+//   return (
+//     <View>
+//       <Text>Contador: {contador}</Text>
+//       <Button title="Incrementar" onPress={() => setContador(contador + 1)} />
+//       <Button title="Decrementar" onPress={() => setContador(contador - 1)} />
+//       <Button title="Resetar" onPress={() => setContador(0)} />
+//     </View>
+//   );
+// }
+
+
+// 5 - Criar um contexto de tema (claro/escuro) com botão para alternar entre eles. 
+
 // import React, { useContext, useState, createContext } from 'react';
 // import { View, Text, Button } from 'react-native';
 
@@ -35,48 +94,5 @@
 // }
 
 
-//-------------------------------useRef----------------------------------------------------
-// import { useRef } from 'react';
-// import { Button, TextInput, View } from 'react-native';
+// 6 - Criar um contexto de autenticação que mostra "Bem-vindo" se o usuário estiver logado.
 
-// export default function FocoNoInput() {
-//   const inputRef = useRef(null);
-
-//   return (
-//     <View>
-//       <TextInput ref={inputRef} placeholder="Digite aqui" />
-//       <Button title="Focar no campo" onPress={() => inputRef.current.focus()} />
-//     </View>
-//   );
-// }
-
-
-
-// ---------------------------------useCallback-------------------------------------------
-import { useCallback, useState } from 'react';
-import { Button, Text, View } from 'react-native';
-
-export default function BotaoMemoizado() {
-  const [cont, setCont] = useState(0);
-
-  const incrementar = useCallback(() => {
-    setCont(prev => prev + 1);
-  }, []);
-
-  const decrementar = useCallback(() => {
-    setCont(prev => prev - 1);
-  }, []);
-
-  const resetar = useCallback(() => {
-    setCont(prev => 0);
-  }, []);
-
-  return (
-    <View>
-      <Text>Contador: {cont}</Text>
-      <Button title="Incrementar" onPress={incrementar} />
-      <Button title="Decrementar" onPress={decrementar} />
-      <Button title="Resetar" onPress={resetar} />
-    </View>
-  );
-}
