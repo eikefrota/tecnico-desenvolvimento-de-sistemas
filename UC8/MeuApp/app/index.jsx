@@ -1,98 +1,35 @@
-// 1 - Criar um contador com botões de incrementar, decrementar e resetar.
+import React from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 
-// import { useState } from 'react';
-// import { Button, Text, View } from 'react-native';
+import SectionTitle from "./components/SectionTitle"
+import Card from "./components/Card"
+import CustomButton from "./components/CustomButton"
 
-// export default function Contador() {
-//   const [contador, setContador] = useState(0);
+const App = () => {
+    const handlePress = () => {
+        alert("Botão apertado!")
+    };
 
-//   return (
-//     <View>
-//       <Text>Contador: {contador}</Text>
-//       <Button title="Incrementar" onPress={() => setContador(contador + 1)} />
-//       <Button title="Decrementar" onPress={() => setContador(contador - 1)} />
-//       <Button title="Resetar" onPress={() => setContador(0)} />
-//     </View>
-//   );
-// }
+    return(
+        <SafeAreaView style={styles.container}>
+            <SectionTitle>Bem-vindo ao App</SectionTitle>
+            <Card 
+                title="Componente Card"
+                content="Este é exemplo de cartão com título e conteúdo" />
 
+            <CustomButton
+                title="Clique aqui"
+                onPress={handlePress} />
+        </SafeAreaView>
+    )
+};
 
-// 2 - Alternar visibilidade de um texto com botão "Mostrar/Ocultar".
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        padding: 24,
+        backgroundColor: "#f2f2f2"
+    }
+})
 
-// import { useState } from 'react';
-// import { Button, Text, View } from 'react-native';
-
-// export default function mostrarOcultar() {
-//   const [visivel, setVisivel] = useState(true);
-//   return (
-//     <View>
-//       {visivel && <Text>ACHOOOOOOOU</Text>}
-//       <Button title="Alternar" onPress={() => setVisivel(!visivel)} />
-//     </View>
-//   );
-// }
-
-
-// 3 - Exibir uma mensagem no console toda vez que o estado de um contador mudar. 
-
-// import { useEffect, useState } from 'react';
-// import { Button, Text, View } from 'react-native';
-
-// export default function Contador() {
-//   const [contador, setContador] = useState(0);
-  
-//   useEffect(() => {
-//     console.log("Apertado")
-//   })
-
-//   return (
-//     <View>
-//       <Text>Contador: {contador}</Text>
-//       <Button title="Incrementar" onPress={() => setContador(contador + 1)} />
-//       <Button title="Decrementar" onPress={() => setContador(contador - 1)} />
-//       <Button title="Resetar" onPress={() => setContador(0)} />
-//     </View>
-//   );
-// }
-
-
-// 5 - Criar um contexto de tema (claro/escuro) com botão para alternar entre eles. 
-
-// import React, { useContext, useState, createContext } from 'react';
-// import { View, Text, Button } from 'react-native';
-
-// const TemaContexto = createContext();
-
-// function TemaProvider({ children }) {
-//   const [tema, setTema] = useState('claro');
-//   return (
-//     <TemaContexto.Provider value={{ tema, setTema }}>
-//       {children}
-//     </TemaContexto.Provider>
-//   );
-// }
-
-// function MostrarTema() {
-//   const { tema, setTema } = useContext(TemaContexto);
-//   return (
-//     <View>
-//       <Text>Tema: {tema}</Text>
-//       <Button
-//         title="Alternar Tema"
-//         onPress={() => setTema(tema === 'claro' ? 'escuro' : 'claro')}
-//       />
-//     </View>
-//   );
-// }
-
-// export default function App() {
-//   return (
-//     <TemaProvider>
-//       <MostrarTema />
-//     </TemaProvider>
-//   );
-// }
-
-
-// 6 - Criar um contexto de autenticação que mostra "Bem-vindo" se o usuário estiver logado.
-
+export default App;
