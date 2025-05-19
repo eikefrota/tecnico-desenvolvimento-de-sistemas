@@ -75,6 +75,42 @@ class ProfissionalController {
       res.status(500).json({ error: 'Erro ao remover profissional.' });
     }
   }
+
+  async getBySalarioMaiorQue(req, res) {
+    try {
+      const { valor } = req.params;
+      const profissionais = await ProfissionalService.getBySalarioMaiorQue(parseFloat(valor));
+      res.status(200).json(profissionais);
+    } catch (error) {
+      console.error('Erro ao buscar profissionais por salário:', error);
+      res.status(500).json({ error: 'Erro ao buscar profissionais.' });
+    }
+  }
+
+  async getBySalarioMenorQue(req, res) {
+    try {
+      const { valor } = req.params;
+      const profissionais = await ProfissionalService.getBySalarioMenorQue(parseFloat(valor));
+      res.status(200).json(profissionais);
+    } catch (error) {
+      console.error('Erro ao buscar profissionais por salário:', error);
+      res.status(500).json({ error: 'Erro ao buscar profissionais.' });
+    }
+  }
+
+  async getBySalarioEntre(req, res) {
+    try {
+      const { minimo, maximo } = req.params;
+      const profissionais = await ProfissionalService.getBySalarioEntre(
+        parseFloat(minimo), 
+        parseFloat(maximo)
+      );
+      res.status(200).json(profissionais);
+    } catch (error) {
+      console.error('Erro ao buscar profissionais por faixa salarial:', error);
+      res.status(500).json({ error: 'Erro ao buscar profissionais.' });
+    }
+  }
 }
 
 module.exports = new ProfissionalController();

@@ -1,5 +1,5 @@
 class Profissional {
-  constructor({ matricula, nome, profissao, salario, setor, cidade, estado }) {
+  constructor({ matricula, nome, profissao, salario, setor, cidade, estado, empresa_id }) {
     this.matricula = matricula;
     this.nome = nome;
     this.profissao = profissao;
@@ -7,9 +7,9 @@ class Profissional {
     this.setor = setor;
     this.cidade = cidade;
     this.estado = estado;
+    this.empresa_id = empresa_id;
   }
 
-  // Você pode adicionar métodos auxiliares aqui, se necessário
   toJSON() {
     return {
       matricula: this.matricula,
@@ -19,6 +19,7 @@ class Profissional {
       setor: this.setor,
       cidade: this.cidade,
       estado: this.estado,
+      empresa_id: this.empresa_id
     };
   }
 }

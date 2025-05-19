@@ -137,6 +137,60 @@ class EmpresaRoutes {
      *         description: Empresa removida com sucesso
      */
     this.router.delete('/:id', controller.remove);
+
+    /**
+     * @swagger
+     * /empresas/{id}/profissionais:
+     *   get:
+     *     summary: Retorna todos os profissionais de uma empresa
+     *     tags: [Empresas]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         schema:
+     *           type: integer
+     *     responses:
+     *       200:
+     *         description: Lista de profissionais da empresa
+     */
+    this.router.get('/:id/profissionais', controller.getProfissionais);
+
+    /**
+     * @swagger
+     * /empresas/{id}/profissionais/count:
+     *   get:
+     *     summary: Retorna o número de profissionais de uma empresa
+     *     tags: [Empresas]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         schema:
+     *           type: integer
+     *     responses:
+     *       200:
+     *         description: Número de profissionais
+     */
+    this.router.get('/:id/profissionais/count', controller.getProfissionaisCount);
+
+    /**
+     * @swagger
+     * /empresas/{id}/profissionais/salario-medio:
+     *   get:
+     *     summary: Retorna o salário médio dos profissionais de uma empresa
+     *     tags: [Empresas]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         schema:
+     *           type: integer
+     *     responses:
+     *       200:
+     *         description: Salário médio
+     */
+    this.router.get('/:id/profissionais/salario-medio', controller.getSalarioMedio);
   }
 
   getRouter() {
