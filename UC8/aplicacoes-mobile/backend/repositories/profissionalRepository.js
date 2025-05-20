@@ -72,4 +72,5 @@ class ProfissionalRepository {
   }
 }
 
+
 module.exports = new ProfissionalRepository();  // Exporte uma instância única da classe
