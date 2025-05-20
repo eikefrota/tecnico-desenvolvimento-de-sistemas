@@ -1,4 +1,5 @@
 const EmpresaService = require('../services/empresaService');
+const ProfissionalRepository = require('../repositories/profissionalRepository');
 
 class EmpresaController {
   // Buscar todas as empresas
@@ -73,6 +74,42 @@ class EmpresaController {
     } catch (error) {
       console.error('Erro ao remover empresa:', error);
       res.status(500).json({ error: 'Erro ao remover empresa.' });
+    }
+  }
+
+  // Buscar profissionais de uma empresa
+  async getProfissionais(req, res) {
+    try {
+      const { id } = req.params;
+      const profissionais = await ProfissionalRepository.findByEmpresa(id);
+      res.status(200).json(profissionais);
+    } catch (error) {
+      console.error('Erro ao buscar profissionais da empresa:', error);
+      res.status(500).json({ error: 'Erro ao buscar profissionais da empresa.' });
+    }
+  }
+
+  // Contar profissionais de uma empresa
+  async getProfissionaisCount(req, res) {
+    try {
+      const { id } = req.params;
+      const count = await ProfissionalRepository.countByEmpresa(id);
+      res.status(200).json({ count });
+    } catch (error) {
+      console.error('Erro ao contar profissionais da empresa:', error);
+      res.status(500).json({ error: 'Erro ao contar profissionais da empresa.' });
+    }
+  }
+
+  // Calcular salário médio dos profissionais de uma empresa
+  async getSalarioMedio(req, res) {
+    try {
+      const { id } = req.params;
+      const media = await ProfissionalRepository.getSalarioMedioByEmpresa(id);
+      res.status(200).json({ media });
+    } catch (error) {
+      console.error('Erro ao calcular salário médio:', error);
+      res.status(500).json({ error: 'Erro ao calcular salário médio.' });
     }
   }
 }

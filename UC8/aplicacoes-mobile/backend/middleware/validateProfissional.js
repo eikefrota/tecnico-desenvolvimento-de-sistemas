@@ -1,9 +1,11 @@
 class ValidateProfissional {
   static validate(req, res, next) {
-    const { nome, profissao, salario, setor, cidade, estado, matricula } = req.body;
+    const { nome, profissao, salario, setor, cidade, estado, matricula, empresa_id } = req.body;
 
-    if (!nome || !profissao || !salario || !setor || !cidade || !estado || !matricula) {
-      return res.status(400).json({ error: 'Todos os campos são obrigatórios, incluindo matrícula.' });
+    if (!nome || !profissao || !salario || !setor || !cidade || !estado || !matricula || !empresa_id) {
+      return res.status(400).json({ 
+        error: 'Todos os campos são obrigatórios, incluindo matrícula e empresa_id.' 
+      });
     }
 
     const salarioNumber = Number(salario);

@@ -41,21 +41,20 @@ class Server {
     });
   }
 
-  async initDb() {
-    try {
-      await dbProfissional();
-      console.log('Tabelas "profissional" criada com sucesso!');
-    } catch (err) {
-      console.error('Erro ao criar a tabela "Profissional": ', err);
-    }
 
-    try {
-      await dbEmpresa();
-      console.log('Tabelas "empresa" criada com sucesso!');
-    } catch (err) {
-      console.error('Erro ao criar a tabela "empresa": ', err);
-    }
+async initDb() {
+  try {
+    // Primeiro cria a tabela empresa
+    await dbEmpresa();
+    console.log('Tabela "empresa" criada com sucesso!');
+    
+    // Depois cria a tabela profissional
+    await dbProfissional();
+    console.log('Tabela "profissional" criada com sucesso!');
+  } catch (err) {
+    console.error('Erro ao criar as tabelas:', err);
   }
+}
 
   start() {
     this.app.listen(this.port, () => {

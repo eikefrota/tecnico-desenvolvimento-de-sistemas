@@ -25,6 +25,18 @@ class ProfissionalService {
     const profissionalRemovido = await repository.remove(id);
     return profissionalRemovido;  // Retorna um objeto Profissional ou null
   }
+
+  static async getBySalarioMaiorQue(valor) {
+    return await repository.findBySalarioMaiorQue(valor);
+  }
+
+  static async getBySalarioMenorQue(valor) {
+    return await repository.findBySalarioMenorQue(valor);
+  }
+
+  static async getBySalarioEntre(minimo, maximo) {
+    return await repository.findBySalarioEntre(minimo, maximo);
+  }
 }
 
 module.exports = ProfissionalService;

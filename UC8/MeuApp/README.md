@@ -1,50 +1,260 @@
-# Welcome to your Expo app 👋
+<!-- ---criar----
+npx create-expo-app@3 promodoro
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---executar----
+npm start
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
+---recriar projeto-----
 npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+----na pasta app, exclui layout---
 
-## Learn more
+------------------------------useState---------------------------------------------
+import React, { useState } from 'react';
+import { View, Button, Text } from 'react-native';
 
-To learn more about developing your project with Expo, look at the following resources:
+export default function Contador() {
+  const [contador, setContador] = useState(0);
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  return (
+    <View>
+      <Text>Contador: {contador}</Text>
+      <Button title="Aumentar" onPress={() => setContador(contador + 1)} />
+    </View>
+  );
+}
 
-## Join the community
+------------------------------------useEffect-----------------------------------
+import React, { useEffect, useState } from 'react';
+import { View, Text } from 'react-native';
 
-Join our community of developers creating universal apps.
+export default function Timer() {
+  const [tempo, setTempo] = useState(0);
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+  useEffect(() => {
+    const id = setInterval(() => setTempo(t => t + 1), 1000);
+    return () => clearInterval(id); // Limpeza
+  }, []);
+
+  return <Text>Tempo: {tempo}s</Text>;
+}
+
+----------------------------useContext---------------------------------------------
+import React, { useContext, useState, createContext } from 'react';
+import { View, Text, Button } from 'react-native';
+
+const TemaContexto = createContext();
+
+function TemaProvider({ children }) {
+  const [tema, setTema] = useState('claro');
+  return (
+    <TemaContexto.Provider value={{ tema, setTema }}>
+      {children}
+    </TemaContexto.Provider>
+  );
+}
+
+function MostrarTema() {
+  const { tema, setTema } = useContext(TemaContexto);
+  return (
+    <View>
+      <Text>Tema: {tema}</Text>
+      <Button
+        title="Alternar Tema"
+        onPress={() => setTema(tema === 'claro' ? 'escuro' : 'claro')}
+      />
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <TemaProvider>
+      <MostrarTema />
+    </TemaProvider>
+  );
+}
+---------------------------------useRef----------------------------------------------------
+import React, { useRef } from 'react';
+import { View, TextInput, Button } from 'react-native';
+
+export default function FocoNoInput() {
+  const inputRef = useRef(null);
+
+  return (
+    <View>
+      <TextInput ref={inputRef} placeholder="Digite aqui" />
+      <Button title="Focar no campo" onPress={() => inputRef.current.focus()} />
+    </View>
+  );
+}
+-------------------------------------------useCallback-------------------------------------------
+import React, { useState, useCallback } from 'react';
+import { View, Button, Text } from 'react-native';
+
+export default function BotaoMemoizado() {
+  const [cont, setCont] = useState(0);
+
+  const incrementar = useCallback(() => {
+    setCont(prev => prev + 1);
+  }, []);
+
+  return (
+    <View>
+      <Text>Contador: {cont}</Text>
+      <Button title="Incrementar" onPress={incrementar} />
+    </View>
+  );
+}
+-----------------------------------
+Respostas dos exercícios
+
+
+// ✅ useState
+// 1. Contador com incrementar, decrementar e resetar
+function Contador() {
+  const [contador, setContador] = useState(0);
+  return (
+    <View>
+      <Text>Contador: {contador}</Text>
+      <Button title="+" onPress={() => setContador(contador + 1)} />
+      <Button title="-" onPress={() => setContador(contador - 1)} />
+      <Button title="Reset" onPress={() => setContador(0)} />
+    </View>
+  );
+}
+
+// 2. Mostrar/Ocultar texto
+function MostrarTexto() {
+  const [visivel, setVisivel] = useState(true);
+  return (
+    <View>
+      {visivel && <Text>Texto visível</Text>}
+      <Button title="Alternar" onPress={() => setVisivel(!visivel)} />
+    </View>
+  );
+}
+
+// ✅ useEffect
+// 3. Log no console quando o contador mudar
+function LogContador() {
+  const [cont, setCont] = useState(0);
+  useEffect(() => {
+    console.log('Contador mudou:', cont);
+  }, [cont]);
+
+  return <Button title="+" onPress={() => setCont(cont + 1)} />;
+}
+
+// 4. Temporizador
+function Temporizador() {
+  const [tempo, setTempo] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTempo(t => t + 1), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return <Text>Tempo: {tempo}s</Text>;
+}
+
+// ✅ useContext
+const TemaContext = createContext();
+
+// 5. Tema claro/escuro
+function TemaProvider({ children }) {
+  const [tema, setTema] = useState('claro');
+  return (
+    <TemaContext.Provider value={{ tema, alternar: () => setTema(t => t === 'claro' ? 'escuro' : 'claro') }}>
+      {children}
+    </TemaContext.Provider>
+  );
+}
+
+function MostrarTema() {
+  const { tema, alternar } = useContext(TemaContext);
+  return (
+    <View>
+      <Text>Tema atual: {tema}</Text>
+      <Button title="Alternar Tema" onPress={alternar} />
+    </View>
+  );
+}
+
+// 6. Autenticação
+const AuthContext = createContext();
+
+function AuthProvider({ children }) {
+  const [logado, setLogado] = useState(false);
+  return (
+    <AuthContext.Provider value={{ logado, login: () => setLogado(true), logout: () => setLogado(false) }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+function MostrarUsuario() {
+  const { logado, login, logout } = useContext(AuthContext);
+  return (
+    <View>
+      <Text>{logado ? 'Bem-vindo!' : 'Faça login'}</Text>
+      <Button title={logado ? 'Logout' : 'Login'} onPress={logado ? logout : login} />
+    </View>
+  );
+}
+
+// ✅ useRef
+// 7. Foco automático
+function FocoInput() {
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+  return <TextInput ref={inputRef} placeholder="Digite algo" />;
+}
+
+// 8. Contar cliques sem re-render
+function ContarCliques() {
+  const cliques = useRef(0);
+  return (
+    <Button title="Clique" onPress={() => {
+      cliques.current++;
+      console.log(`Clicado ${cliques.current} vezes`);
+    }} />
+  );
+}
+
+// ✅ useCallback
+// 9. Adicionar item à lista
+function ListaTarefas() {
+  const [tarefas, setTarefas] = useState([]);
+  const [texto, setTexto] = useState('');
+
+  const adicionar = useCallback(() => {
+    setTarefas(prev => [...prev, texto]);
+    setTexto('');
+  }, [texto]);
+
+  return (
+    <View>
+      <TextInput value={texto} onChangeText={setTexto} />
+      <Button title="Adicionar" onPress={adicionar} />
+      {tarefas.map((t, i) => <Text key={i}>{t}</Text>)}
+    </View>
+  );
+}
+
+// 10. Função memoizada para incrementar
+const Incrementar = React.memo(({ onIncrementar }) => {
+  return <Button title="Incrementar" onPress={onIncrementar} />;
+});
+
+function ContadorCallback() {
+  const [valor, setValor] = useState(0);
+  const incrementar = useCallback(() => setValor(v => v + 1), []);
+  return (
+    <View>
+      <Text>Valor: {valor}</Text>
+      <Incrementar onIncrementar={incrementar} />
+    </View>
+  );
+} -->
