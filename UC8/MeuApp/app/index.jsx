@@ -1,3 +1,4 @@
+import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 
 import Form from './components/Form/Form';
@@ -22,5 +23,7 @@ const App = () => {
     </SafeAreaView>
   );
 };
+
+
 
 export default App;
