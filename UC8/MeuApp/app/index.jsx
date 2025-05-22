@@ -1,4 +1,3 @@
-import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 
 import Form from './components/Form/Form';
@@ -19,7 +18,11 @@ const App = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Form /> 
       </ScrollView>
-      <Navbar />
+      <Navbar 
+        label = {{inicio: 'inicio', formulario: 'formulario', sobre: 'sobre'}}
+        onInicioPress = {() => console.log('Início')}
+        onFormularioPress = {() => console.log('Formulário')}
+        onSobrePress = {() => console.log('Sobre')}/>
     </SafeAreaView>
   );
 };
