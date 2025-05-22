@@ -1,4 +1,3 @@
-import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 
 import Form from './components/Form/Form';
@@ -9,10 +8,6 @@ import Navbar from './components/Navbar/Navbar';
 import styles from './styles';
 
 const App = () => {
-  const handlePress = () => {
-    alert('Botão pressionado!');
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -23,7 +18,5 @@ const App = () => {
     </SafeAreaView>
   );
 };
-
-
 
 export default App;

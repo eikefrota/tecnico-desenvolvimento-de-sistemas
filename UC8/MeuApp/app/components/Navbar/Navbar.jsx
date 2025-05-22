@@ -5,13 +5,13 @@ const Navbar = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>Início</Text>
+        <Text style={styles.text}>Automobilistica</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>Formulário</Text>
+        <Text style={styles.text}>Construção Civil</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>Sobre</Text>
+        <Text style={styles.text}>Desenvolvimento</Text>
       </TouchableOpacity>
     </View>
   );
